@@ -7,7 +7,7 @@ import com.luxoft.bankapp.exceptions.NotEnoughFundsException;
 import com.luxoft.bankapp.exceptions.OverdraftLimitExceededException;
 import com.luxoft.bankapp.utils.Params;
 
-public class CheckingAccount extends AbstractAccount {
+public class CheckingAccount extends AbstractAccount implements Cloneable {
 	
 	private static final long serialVersionUID = 7922392307762434334L;
 	public double overdraft;
@@ -35,7 +35,10 @@ public class CheckingAccount extends AbstractAccount {
 	public Currency getCurrency() {
 		return currency;
 	}
-	
+	public double getOverdraft() {
+		return overdraft;
+	}
+
 	@Override
     public void withdraw(double value) throws OverdraftLimitExceededException {
         try {
@@ -64,4 +67,15 @@ public class CheckingAccount extends AbstractAccount {
                 Double.parseDouble(overdraft),
                 new Currency(currency));
     }
+
+	@Override
+	public AbstractAccount clone() throws CloneNotSupportedException {
+		try{
+			return (CheckingAccount) super.clone();
+		}
+		catch(CloneNotSupportedException e){
+			return new CheckingAccount(this.getId(), this.getBalance(), this.getOverdraft());
+		}
+	}
+
 }

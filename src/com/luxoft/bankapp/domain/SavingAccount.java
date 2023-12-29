@@ -6,7 +6,7 @@ import java.util.Locale;
 import com.luxoft.bankapp.utils.Params;
 
 
-public class SavingAccount extends AbstractAccount {
+public class SavingAccount extends AbstractAccount implements Cloneable{
 
 	private static final long serialVersionUID = 9200460687227050240L;
 	private Currency currency;
@@ -44,5 +44,18 @@ public class SavingAccount extends AbstractAccount {
         		Double.parseDouble(balance),
         		new Currency(currency));
     }
+
+	@Override
+	public AbstractAccount clone() throws CloneNotSupportedException {
+		//return super.clone();
+
+		try{
+			return (SavingAccount) super.clone();
+		}
+		catch(CloneNotSupportedException e){
+		return new SavingAccount(this.getId(), this.getBalance());
+		}
+
+	}
 	
 }

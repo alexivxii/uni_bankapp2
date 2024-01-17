@@ -10,7 +10,7 @@ import com.luxoft.bankapp.utils.Params;
 public class CheckingAccount extends AbstractAccount implements Cloneable {
 	
 	private static final long serialVersionUID = 7922392307762434334L;
-	public double overdraft;
+	private double overdraft;
 	private Currency currency;
 
 	public CheckingAccount(int id, double amount, double overdraft) {
@@ -51,7 +51,7 @@ public class CheckingAccount extends AbstractAccount implements Cloneable {
 	@Override
 	public String toString() {
 		Formatter fmt = new Formatter(Locale.US);
-		String stringAccount = fmt.format("Checking account %d, balance: %.2f, overdraft: %.2f", getId(), balance, overdraft).toString(); 
+		String stringAccount = fmt.format("Checking account %d, balance: %.2f, overdraft: %.2f", getId(), getBalance(), overdraft).toString();
 		fmt.close();
 		return stringAccount;
 	}

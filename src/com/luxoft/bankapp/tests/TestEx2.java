@@ -69,9 +69,6 @@ public class TestEx2 {
         SavingAccount savingAccountTemp = new SavingAccount(33, 3333.0);
         System.out.println("Temp acc hashcode before cloning " + savingAccountTemp.hashCode());
 
-        //TODO: Unhandled exception: java.lang.CloneNotSupportedException
-        //TODO: daca nu ii dau try catch, imi apare eroare de mai sus
-        //TODO: chiar daca i am facut handle in AbstractAccount clone()
 
         try {
             savingAccountTemp = (SavingAccount) accCache.getCache(savingAccountTemp.getType()).clone();

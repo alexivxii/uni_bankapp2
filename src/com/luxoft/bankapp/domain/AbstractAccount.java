@@ -15,7 +15,7 @@ public abstract class AbstractAccount implements Account, Serializable, Cloneabl
 	private int id;
 	private int type;
 
-	public double balance;
+	private double balance;
 	
 	public AbstractAccount(int id, double amount) {
 		this.id = id;
@@ -57,7 +57,7 @@ public abstract class AbstractAccount implements Account, Serializable, Cloneabl
 			   return balance;
 		   case CHECKING_ACCOUNT_TYPE:
 			   CheckingAccount checkingAccount = (CheckingAccount)this;
-			  return checkingAccount.balance + checkingAccount.overdraft;
+			  return checkingAccount.getBalance() + checkingAccount.getOverdraft();
 		}
 		
         return 0;

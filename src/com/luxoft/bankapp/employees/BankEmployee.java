@@ -4,9 +4,9 @@ import com.luxoft.bankapp.domain.Department;
 
 public class BankEmployee {
 
-	public String name; 
-	public Department department; 
-	public int salary; 
+	private String name;
+	private Department department;
+	private int salary;
 	
 	public BankEmployee() {
 		
@@ -21,5 +21,12 @@ public class BankEmployee {
 	public Department getDepartment() {
 		return department;
 	}
-	
+
+	public String getName() {
+		return name;
+	}
+
+	public int getSalary() {
+		return salary;
+	}
 }
